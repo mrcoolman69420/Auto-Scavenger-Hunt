@@ -1,0 +1,37 @@
+getgenv().autoscavenge = true
+
+spawn (function()
+    while getgenv().autoscavenge == true do
+        local Library = require(game.ReplicatedStorage.Framework.Library)
+
+        InvokeHook = hookfunction(getupvalue(Library.Network.Invoke, 1), function(...) return true end)
+        FireHook = hookfunction(getupvalue(Library.Network.Fire, 1), function(...) return true end)
+
+        Library.Network.Invoke("Claim Scavenger Item")
+    end
+    wait(0.01)
+end)
+
+local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
+
+local win = BlekLib:Create({
+    Name = "Auto Scavenger Hunt",
+    StartupSound = {
+        Toggle = true,
+        SoundID = "rbxassetid://12460504940",
+        TimePosition = 1
+    }
+})
+
+local maintab = win:Tab('Main')
+local misctab = win:Tab('Misc')
+
+
+maintab:Label('Auto Scavenger Hunt Auto Enabled :)')
+
+misctab:Button('Destroy GUI', function()
+    win:Exit()
+end)
+
+misctab:Label('Auto Scavenger Hunt by Flury, UI setup by Lowkey_Magiic')
+misctab:Label('Milk Up On TOP!')
