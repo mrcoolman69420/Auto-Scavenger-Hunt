@@ -9,7 +9,7 @@ spawn (function()
 
         Library.Network.Invoke("Claim Scavenger Item")
     end
-    wait(0.01)
+    wait(0.1)
 end)
 
 local BlekLib = loadstring(game:HttpGet("https://raw.githubusercontent.com/laderite/bleklib/main/library.lua"))()
